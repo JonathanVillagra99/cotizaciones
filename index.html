@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Órdenes de Trabajo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Cargamos la librería mágica para generar el PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- INTERFAZ VISIBLE (Lo que usarás en el iPhone/PC) -->
+    <main class="app-container">
+        <h2>Servicios Nepun Spa</h2>
+        <form id="orden-form">
+
+            <div class="form-group">
+                <label for="nombre">Nombre del Cliente</label>
+                <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
+            </div>
+            
+            <div class="form-group">
+                <label for="patente">Patente</label>
+                <input type="text" id="patente" required placeholder="Ej: AB-CD-12">
+            </div>
+
+            <div class="form-group">
+                <label for="kilometraje">Kilometraje (km)</label>
+                <input type="number" id="kilometraje" placeholder="Ej: 85000" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="trabajo">Trabajo a Realizar</label>
+                <textarea id="trabajo" rows="3" required placeholder="Ej: Cambio de aceite y filtros..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" rows="2" placeholder="Ej: Neumático delantero derecho con desgaste irregular..."></textarea>
+            </div>
+
+            <div class="form-group montos">
+                <div>
+                    <label for="mano-obra">Mano de Obra ($)</label>
+                    <input type="number" id="mano-obra" value="0" min="0">
+                </div>
+                <div>
+                    <label for="repuestos">Total Repuestos ($)</label>
+                    <input type="number" id="repuestos" value="0" min="0">
+                </div>
+            </div>
+
+            <div class="total-visual">
+                <h3>Total: $<span id="total-pantalla">0</span></h3>
+            </div>
+
+            <button type="button" id="btn-generar">Generar PDF y Descargar 📄</button>
+        </form>
+    </main>
+
+    <!-- PLANTILLA OCULTA (El diseño exacto que saldrá en el PDF) -->
+    <!-- Se posiciona fuera de la pantalla para que no moleste en la app -->
+    <div id="pdf-container">
+        <div class="pdf-content">
+            <div class="pdf-header">
+                <div class="pdf-logo">
+                    <div class="jaula-del-logo">
+                        <img src="logo.jpeg" alt="Logo Taller" width="250" style="width: 250px !important; min-width: 250px !important; max-width: 250px !important; height: auto !important; display: block; margin: 0;">
+                    </div>
+                </div>
+                <div class="pdf-info">
+                    <h1>Cotización</h1>
+                    <!-- NUEVO: NÚMERO DE ORDEN -->
+                    <p><strong>N° Orden:</strong> <span id="pdf-numero-orden"></span></p>
+                    <p><strong>Fecha:</strong> <span id="pdf-fecha"></span></p>
+                </div>
+            </div>
+
+            <div class="pdf-section">
+                <h3>Datos del Vehículo y Cliente</h3>
+                <p><strong>Nombre:</strong> <span id="pdf-nombre"></span></p>
+                <p><strong>Patente:</strong> <span id="pdf-patente"></span></p>
+                <p><strong>Kilometraje:</strong> <span id="pdf-kilometraje"></span> km</p>
+            </div>
+
+            <div class="pdf-section">
+                <h3>Trabajo a Realizar</h3>
+                <p id="pdf-trabajo" class="multiline-text"></p>
+            </div>
+
+            <div class="pdf-section">
+                <h3>Observaciones</h3>
+                <p id="pdf-observaciones" class="multiline-text"></p>
+            </div>
+
+            <table class="pdf-totales">
+                <tr>
+                    <td>Mano de Obra:</td>
+                    <td>$<span id="pdf-mo">0</span></td>
+                </tr>
+                <tr>
+                    <td>Total Repuestos:</td>
+                    <td>$<span id="pdf-rep">0</span></td>
+                </tr>
+                <tr class="pdf-total-final">
+                    <td>TOTAL FINAL:</td>
+                    <td>$<span id="pdf-total">0</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
