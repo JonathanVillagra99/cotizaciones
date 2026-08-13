@@ -30,6 +30,48 @@
             </div>
 
             <div class="form-group">
+                <label for="nombre">Nombre del Cliente</label>
+                <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
+            </div>
+            
+            <div class="form-group">
+                <label for="patente">Patente</label>
+                <input type="text" id="patente" required placeholder="Ej: AB-CD-12">
+            </div>
+
+            <!-- NUEVO: Marca y Modelo -->
+            <div class="form-group montos">
+                <div>
+                    <label for="marca">Marca</label>
+                    <input type="text" id="marca" placeholder="Ej: Toyota">
+                </div>
+                <div>
+                    <label for="modelo">Modelo</label>
+                    <input type="text" id="modelo" placeholder="Ej: Hilux">
+                </div>
+            </div>
+
+            <!-- NUEVO: Cilindrada y Tracción -->
+            <div class="form-group montos">
+                <div>
+                    <label for="cilindrada">Cilindrada</label>
+                    <input type="text" id="cilindrada" placeholder="Ej: 2.4 / 2000cc">
+                </div>
+                <div>
+                    <label for="traccion">Tracción</label>
+                    <select id="traccion">
+                        <option value="4x2">4x2</option>
+                        <option value="4x4">4x4</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="kilometraje">Kilometraje (km)</label>
+                <input type="number" id="kilometraje" placeholder="Ej: 85000" min="0">
+            </div>
+
+            <div class="form-group">
                 <label for="trabajo">Trabajo a Realizar</label>
                 <textarea id="trabajo" rows="3" required placeholder="Ej: Cambio de aceite y filtros..."></textarea>
             </div>
@@ -79,7 +121,8 @@
             <div class="pdf-section">
                 <h3>Datos del Vehículo y Cliente</h3>
                 <p><strong>Nombre:</strong> <span id="pdf-nombre"></span></p>
-                <p><strong>Patente:</strong> <span id="pdf-patente"></span></p>
+                <p><strong>Patente:</strong> <span id="pdf-patente"></span> | <strong>Marca/Modelo:</strong> <span id="pdf-vehiculo"></span></p>
+                <p><strong>Cilindrada:</strong> <span id="pdf-cilindrada"></span> | <strong>Tracción:</strong> <span id="pdf-traccion"></span></p>
                 <p><strong>Kilometraje:</strong> <span id="pdf-kilometraje"></span> km</p>
             </div>
 

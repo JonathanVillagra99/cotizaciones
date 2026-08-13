@@ -10,6 +10,10 @@ const inputPatente = document.getElementById('patente');
 const inputKilometraje = document.getElementById('kilometraje');
 const inputTrabajo = document.getElementById('trabajo');
 const inputObservaciones = document.getElementById('observaciones');
+const inputMarca = document.getElementById('marca');
+const inputModelo = document.getElementById('modelo');
+const inputCilindrada = document.getElementById('cilindrada');
+const selectTraccion = document.getElementById('traccion');
 
 // ==========================================
 // 2. INICIALIZACIÓN DEL NÚMERO DE ORDEN
@@ -79,6 +83,12 @@ if (btnGenerar) {
         nombre = capitalizarNombres(nombre) || 'Sin Nombre'; 
         const patente = inputPatente ? (inputPatente.value.toUpperCase() || 'S/N') : 'S/N';
         const kilometraje = inputKilometraje ? (inputKilometraje.value || '0') : '0';
+        // Extraer nuevos datos
+        const marca = inputMarca ? (capitalizarNombres(inputMarca.value) || 'S/M') : 'S/M';
+        const modelo = inputModelo ? (capitalizarNombres(inputModelo.value) || 'S/M') : 'S/M';
+        const vehiculoCompleto = `${marca} ${modelo}`;
+        const cilindrada = inputCilindrada ? (inputCilindrada.value || 'N/E') : 'N/E';
+        const traccion = selectTraccion ? selectTraccion.value : '4x2';
         const trabajo = inputTrabajo ? (inputTrabajo.value || 'Ninguno especificado.') : 'Ninguno especificado.';
         const obs = inputObservaciones ? (inputObservaciones.value || 'Sin observaciones.') : 'Sin observaciones.';
         const { mo, rep, suma } = calcularTotal();
@@ -98,6 +108,19 @@ if (btnGenerar) {
         inyectarDato('pdf-fecha', fechaFormat);
         inyectarDato('pdf-nombre', nombre);
         inyectarDato('pdf-patente', patente);
+        inyectarDato('pdf-kilometraje', Number(kilometraje).toLocaleString('es-CL'));
+        inyectarDato('pdf-trabajo', trabajo);
+        inyectarDato('pdf-observaciones', obs);
+        inyectarDato('pdf-mo', mo.toLocaleString('es-CL'));
+        inyectarDato('pdf-rep', rep.toLocaleString('es-CL'));
+        inyectarDato('pdf-total', suma.toLocaleString('es-CL'));
+        inyectarDato('pdf-numero-orden', numOrdenFormateado);
+        inyectarDato('pdf-fecha', fechaFormat);
+        inyectarDato('pdf-nombre', nombre);
+        inyectarDato('pdf-patente', patente);
+        inyectarDato('pdf-vehiculo', vehiculoCompleto);
+        inyectarDato('pdf-cilindrada', cilindrada);
+        inyectarDato('pdf-traccion', traccion);
         inyectarDato('pdf-kilometraje', Number(kilometraje).toLocaleString('es-CL'));
         inyectarDato('pdf-trabajo', trabajo);
         inyectarDato('pdf-observaciones', obs);
