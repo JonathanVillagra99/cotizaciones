@@ -108,16 +108,6 @@ if (btnGenerar) {
         inyectarDato('pdf-fecha', fechaFormat);
         inyectarDato('pdf-nombre', nombre);
         inyectarDato('pdf-patente', patente);
-        inyectarDato('pdf-kilometraje', Number(kilometraje).toLocaleString('es-CL'));
-        inyectarDato('pdf-trabajo', trabajo);
-        inyectarDato('pdf-observaciones', obs);
-        inyectarDato('pdf-mo', mo.toLocaleString('es-CL'));
-        inyectarDato('pdf-rep', rep.toLocaleString('es-CL'));
-        inyectarDato('pdf-total', suma.toLocaleString('es-CL'));
-        inyectarDato('pdf-numero-orden', numOrdenFormateado);
-        inyectarDato('pdf-fecha', fechaFormat);
-        inyectarDato('pdf-nombre', nombre);
-        inyectarDato('pdf-patente', patente);
         inyectarDato('pdf-vehiculo', vehiculoCompleto);
         inyectarDato('pdf-cilindrada', cilindrada);
         inyectarDato('pdf-traccion', traccion);
