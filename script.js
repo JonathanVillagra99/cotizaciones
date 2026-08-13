@@ -142,6 +142,7 @@ if (btnGenerar) {
                 margin:       0, 
                 filename:     nombreArchivo,
                 image:        { type: 'jpeg', quality: 0.98 },
+                pagebreak:    { mode: 'avoid-all' },
                 html2canvas:  { 
                     scale: 2, 
                     useCORS: true,
