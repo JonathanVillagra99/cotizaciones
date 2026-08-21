@@ -142,7 +142,6 @@ if (btnGenerar) {
                 margin:       0, 
                 filename:     nombreArchivo,
                 image:        { type: 'jpeg', quality: 0.98 },
-                pagebreak:    { mode: 'avoid-all' },
                 html2canvas:  { 
                     scale: 2, 
                     useCORS: true,
@@ -152,14 +151,13 @@ if (btnGenerar) {
                     y: 0,
                     scrollX: 0,
                     scrollY: 0,
-                    /* ¡NUEVO! Obliga a ignorar el escalado del dispositivo */
-                    letterRendering: true,
-                    ignoreElements: false
+                    letterRendering: true
                 }, 
                 jsPDF:        { 
-                    unit: 'mm', 
-                    format: 'a4', 
-                    orientation: 'portrait' 
+                    unit: 'px', 
+                    format: [794, 1123], 
+                    orientation: 'portrait',
+                    hotfixes: ["px_scaling"]
                 }
             };
 

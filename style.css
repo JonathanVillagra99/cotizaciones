@@ -180,16 +180,16 @@ button:hover {
 }
 
 .pdf-totales {
-    width: 300px;
-    float: right;
+    width: 320px;
+    margin-left: auto; /* Alinea a la derecha sin romper el flujo vertical */
+    margin-top: 15px;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 .pdf-totales td {
-    padding: 10px;
+    padding: 8px 10px;
     border: 1px solid #bdc3c7;
-    font-size: 14px;
+    font-size: 13.5px;
 }
 
 .pdf-totales td:first-child {
@@ -202,7 +202,7 @@ button:hover {
     background-color: #e67e22 !important;
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 /* Forzar mayúsculas visuales en los inputs */
